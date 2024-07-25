@@ -1,0 +1,108 @@
+#include<iostream>
+
+using namespace std;
+
+class Clientes {
+protected:
+    char nombre [5] [50];
+    char domic [5] [50];
+    int fecha [5];
+public:
+    Clientes();
+    
+   void mostrar_cliente();
+   void agregar_cliente();
+   void buscar_cliente();
+};
+
+Clientes::Clientes()
+{
+    cout<<"Registro de Clientes: "<<endl;
+    for(int f=0;f < 5;f++)
+    {
+      
+      cout <<"Ingrese el nombre:";
+        cin.getline(nombre[f],50);
+        cout <<"Ingrese el domicilio:";
+        cin.getline(domic[f],50);
+        cout <<"Ingrese el fecha:";
+        cin>>fecha[f];
+        cin.get();
+      
+    }
+}
+
+void Clientes::mostrar_cliente()
+{
+    for(int f = 0; f < 5; f++)
+    {
+        cout <<nombre[f] <<"\n";;
+        cout <<domic[f] <<"\n";;
+        cout <<fecha[f] <<"\n";;
+    }
+    cin.get();
+    cin.get();
+}
+
+void Clientes::agregar_cliente()
+{
+  for(int f=0;f < 5;f++)
+    {
+        cout <<"Ingrese el nombre:";
+        cin.getline(nombre[f],50);
+        cout <<"Ingrese el domicilio:";
+        cin.getline(domic[f],50);
+        cout <<"Ingrese el fecha:";
+        cin>>fecha[f];
+        cin.get();
+      
+    }   
+}
+
+
+class Mayorista : public Clientes {
+private:
+    int id [5];
+    int importe [5];
+    int cant_producto[5];
+    int nombre[5];
+public:
+    Mayorista ();
+    void burcar_id();
+    void mostrar();
+};
+Mayorista::Mayorista()
+{
+   cout<<"Mayorista: "<<endl;
+    for(int f=0;f < 5;f++)
+    {
+        cout <<"Ingrese el id:";
+        cin >>id[f];
+        cout <<"Ingrese el importe:";
+        cin >>importe[f];
+        cout <<"Ingrese el cant_producto:";
+        cin>>cant_producto[f];
+        cin.get();
+      
+    }
+}
+void Mayorista::mostrar()
+{
+   for(int f = 0; f < 5; f++)
+    {
+        cout <<id[f] <<"\n";;
+        cout <<importe[f] <<"\n";;
+        cout <<cant_producto[f] <<"\n";;
+    }
+    cin.get();
+    cin.get();
+}
+
+int main()
+{
+    Clientes op;
+    op.mostrar_cliente();
+    op.agregar_cliente();
+   
+    return 0;
+}
